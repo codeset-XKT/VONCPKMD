@@ -3,7 +3,7 @@
     <Tooltip content="返回顶部"  class="fix-top">
         <Icon type="md-arrow-dropup-circle" size="60" color="#ccc" @click="returnTotop"/>
     </Tooltip>
-    <Menu mode="horizontal" :theme="theme1" active-name="1" class="slideInDown animated">
+    <Menu mode="horizontal" :theme="theme1" :active-name="activeItem()" class="slideInDown animated">
         <span style="float: left;margin-left: 20px;">
             <img src="../assets/logo.png" alt="" width="30" style="vertical-align: middle;margin-right: 10px;">
             <span style="vertical-align: middle;">新冠肺炎知识图谱数据可视化平台</span s>
@@ -52,7 +52,7 @@
     </Menu>
     <br>
     <router-view/>
-    <footer>
+    <footer v-if="showFooter()" :id="this.$route.path">
         <Row>
             <Col span="10" offset="2" class="footer-left">
                 <img src="../assets/logo.png" alt="" width="50px"><span>新冠肺炎知识图谱数据可视化平台</span>
@@ -84,12 +84,6 @@
                 data1: []
             }
         },
-        beforeCreated() {
-            this.$Loading.start();
-        },
-        mounted() {
-            this.$Loading.finish();
-        },
         methods: {
             returnTotop() {
                 document.body.scrollTop = 0;
@@ -102,6 +96,35 @@
                     value + value,
                     value + value + value
                 ];
+            },
+            showFooter(){
+                if(this.$route.path=='/main/tab4'||this.$route.path=='/main/home'){
+                    return true;
+                }else{
+                    return false;
+                }
+            },
+            activeItem(){ //导航栏栏目显示
+                switch(this.$route.path){
+                    case '/main/home':
+                        return '1';
+                        break;
+                    case '/main/tab1':
+                        return '2';
+                        break;
+                    case '/main/tab2':
+                        return '3';
+                        break;
+                    case '/main/tab3':
+                        return '4';
+                        break;
+                    case '/main/tab4':
+                        return '5';
+                        break;
+                    default:
+                        return '1';
+                        break;
+                }
             }
         }
     }

@@ -1,5 +1,8 @@
 <template>
     <div class="home">
+        <Tooltip content="返回顶部"  class="fix-top">
+            <Icon type="md-arrow-dropup-circle" size="60" color="#ccc" @click="returnTotop"/>
+        </Tooltip>
         <div class="bg1">
             <img src="../assets/bg1.jpg" alt="" class="fadeIn animated" width="100%" height="100%">
         </div>
@@ -62,11 +65,26 @@
         },
         mounted() {
             this.$Loading.finish();
+        },
+        methods:{
+            returnTotop() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+                console.log(1)
+            },
         }
     }
 </script>
 
 <style scoped>
+    .fix-top {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        z-index: 999;
+        opacity: .8;
+    }
+    
     .bg1 {
         position: absolute;
         width: 100%;

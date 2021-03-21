@@ -120,17 +120,11 @@
         methods: {
             preload() {
                 let imgs = [
-                    "../static/img/1.png",
-                    "../static/img/2.png",
-                    "../static/img/3.png",
-                    "../static/img/4.png",
-                    "../static/img/5.png",
-                    "../static/img/6.jpg",
-                    "../static/img/7.jpg",
-                    "../static/img/8.jpg",
-                    "../static/img/9.jpeg",
-                    "../static/img/10.jpg",
-                    "../static/img/11.jpg"
+                    "../static/img/cured.png",
+                    "../static/img/death.png",
+                    "../static/img/sure.png",
+                    "../static/img/time.png",
+                    "../static/img/city.png",
                 ];
                 this.imgLength = imgs.length;
                 for (let img of imgs) {

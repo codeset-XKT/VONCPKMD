@@ -1,8 +1,6 @@
 <template>
     <div style="color:#eee">
-    <Tooltip content="返回顶部"  class="fix-top">
-        <Icon type="md-arrow-dropup-circle" size="60" color="#ccc" @click="returnTotop"/>
-    </Tooltip>
+    
     <Menu mode="horizontal" :theme="theme1" :active-name="activeItem()" class="slideInDown animated">
         <span style="float: left;margin-left: 20px;">
             <img src="../assets/logo.png" alt="" width="30" style="vertical-align: middle;margin-right: 10px;">
@@ -29,23 +27,23 @@
                 <DropdownItem divided>北京烤鸭</DropdownItem>
             </DropdownMenu>
         </Dropdown>
-        <MenuItem name="5"  style="margin-right: 20px;" to="tab4">
+        <MenuItem name="5"  style="margin-right: 20px;" to="/main/tab4">
             <Icon type="md-download" />
             报表下载
         </MenuItem>
-        <MenuItem name="4" to="tab3">
+        <MenuItem name="4" to="/main/tab3">
             <Icon type="ios-paper" />
             知识图谱
         </MenuItem>
-        <MenuItem name="3" to="tab2">
+        <MenuItem name="3" to="/main/tab2">
             <Icon type="logo-python" />
             时空分析
         </MenuItem>
-        <MenuItem name="2" to="tab1">
+        <MenuItem name="2" to="/main/tab1">
             <Icon type="md-pulse" />
             趋势挖掘
         </MenuItem>
-        <MenuItem name="1" to="home">
+        <MenuItem name="1" to="/main/home">
             <Icon type="md-home" />
             首页
         </MenuItem>
@@ -85,11 +83,6 @@
             }
         },
         methods: {
-            returnTotop() {
-                document.body.scrollTop = 0;
-                document.documentElement.scrollTop = 0;
-                console.log(1)
-            },
             handleSearch1(value) {
                 this.data1 = !value ? [] : [
                     value,
@@ -109,7 +102,13 @@
                     case '/main/home':
                         return '1';
                         break;
-                    case '/main/tab1':
+                    case '/main/tab1/':
+                        return '2';
+                        break;
+                    case '/main/tab1/chinaCurrent':
+                        return '2';
+                        break;
+                    case '/main/tab1/chinaTrend':
                         return '2';
                         break;
                     case '/main/tab2':
@@ -146,14 +145,6 @@
     
     .ivu-select-item {
         text-align: left;
-    }
-    
-    .fix-top {
-        position: fixed;
-        right: 20px;
-        bottom: 20px;
-        z-index: 999;
-        opacity: .8;
     }
     
     .ivu-input {

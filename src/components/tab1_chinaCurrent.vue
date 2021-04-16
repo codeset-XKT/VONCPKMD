@@ -1,5 +1,10 @@
 <template>
     <div class="china-current">
+        <span class="step">演示步长：
+        <Select v-model="model1" style="width:200px">
+            <Option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</Option>
+        </Select>
+        </span>
         <div id="myChart1"></div>
     </div>
 </template>
@@ -7,7 +12,17 @@
     export default {
         data() {
             return {
-                yqData: {}
+                cityList: [
+                    {
+                        value: 'dayly',
+                        label: 'dayly'
+                    },
+                    {
+                        value: 'monthly',
+                        label: 'monthly'
+                    }
+                ],
+                model1:'dayly'
             }
         },
         beforeCreate() {
@@ -74,7 +89,7 @@
                 var optionTimeLine = {
                         baseOption: {
                             timeline: {
-                                bottom: 0,
+                                bottom: 10,
                                 axisType: 'category',
                                 autoPlay: true,
                                 playInterval: 2000,
@@ -151,7 +166,7 @@
                                 map: 'china',
                                 layoutCenter: ['30%', '65%'],
                                 // 如果宽高比大于 1 则宽度为 100，如果小于 1 则高度为 100，保证了不超过 100x100 的区域
-                                layoutSize: '130%',
+                                layoutSize: '110%',
                                 label: {
                                     normal: {
                                         show: false
@@ -174,7 +189,7 @@
                             },
                             grid: {
                                 left: 1000,
-                                top: 15,
+                                top: 85,
                                 bottom: 100
                             },
                             xAxis: {
@@ -367,28 +382,30 @@
 
             });
 
-            // this.axios({
-            //     method: "GET",
-            //     url: 'http://ncovdata.market.alicloudapi.com/ncov/cityDiseaseInfoWithTrend', //全国实时疫情数据
-            //     headers: {
-            //         "Authorization": "APPCODE eff8274606204ce7b52fc0d8680190f1",
-            //     }
-            // }).then((res) => {
-            //     that.yqData = res.data;
-            //     console.log(that.yqData);
-            // })
         }
     }
 </script>
 
 <style scoped>
+    .step{
+        position:absolute;
+        z-index:99;
+        left:120px;
+        bottom:10
+        
+        0px;
+    }
     h1 {
         text-align: center !important;
         margin-top: 40px
     }
     
     #myChart1 {
+        position:absolute;
         width: 100%;
-        height: 620px;
+        height: 100%;
+        top:0;
+        left:0;
+        background:var(--bg-darkColor);
     }
 </style>

@@ -85,7 +85,7 @@
     
     body {
         overflow-x: hidden !important;
-        background: #181f2c;
+        background: var(--bg-darkColor);
     }
     
     #app {

@@ -7,8 +7,12 @@ import Tab1 from '../components/tab1'
 import Tab2 from '../components/tab2'
 import Tab3 from '../components/tab3'
 import Tab4 from '../components/tab4'
+import News from '../components/news'
 import chinaCurrent from '../components/tab1_chinaCurrent'
 import chinaTrend from '../components/tab1_chinaTrend'
+import Map1 from '../components/tab3_map1'
+import Map2 from '../components/tab3_map2'
+import Map3 from '../components/tab3_map3'
 
 Vue.use(Router)
 
@@ -49,12 +53,31 @@ export default new Router({
             component: Tab2,
         }, {
             path: 'tab3',
+            redirect: 'tab3/map1',
             name: 'tab3',
+            children: [{
+                path: 'map1',
+                name: 'map1',
+                component: Map1
+            }, {
+                path: 'map2',
+                name: 'map2',
+                component: Map2
+            }, {
+                path: 'map3',
+                name: 'map3',
+                component: Map3
+            }],
             component: Tab3
         }, {
             path: 'tab4',
             name: 'tab4',
-            component: Tab4
+            component: Tab4,
+            children: [{
+                path: 'news',
+                name: 'news',
+                // component: News
+            }]
         }]
     }]
 })

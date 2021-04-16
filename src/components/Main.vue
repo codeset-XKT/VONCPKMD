@@ -117,6 +117,12 @@
                     case '/main/tab3':
                         return '4';
                         break;
+                    case '/main/tab3/map1':
+                        return '4';
+                        break;
+                    case '/main/tab3/map2':
+                        return '4';
+                        break;
                     case '/main/tab4':
                         return '5';
                         break;

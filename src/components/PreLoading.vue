@@ -1,7 +1,6 @@
 <template>
     <div class="preloading  animated">
         <div class="loading animated">
-     
         </div>
     </div>
 </template>

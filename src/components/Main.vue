@@ -28,8 +28,8 @@
             </DropdownMenu>
         </Dropdown>
         <MenuItem name="5"  style="margin-right: 20px;" to="/main/tab4">
-            <Icon type="md-download" />
-            报表下载
+            <Icon type="ios-list-box-outline" />
+            新闻谣言
         </MenuItem>
         <MenuItem name="4" to="/main/tab3">
             <Icon type="ios-paper" />
@@ -123,7 +123,10 @@
                     case '/main/tab3/map2':
                         return '4';
                         break;
-                    case '/main/tab4':
+                    case '/main/tab4/news':
+                        return '5';
+                        break;
+                    case '/main/tab4/rumor':
                         return '5';
                         break;
                     default:

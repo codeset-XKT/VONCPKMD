@@ -117,24 +117,24 @@
             this.preload();
         },
         methods: {
-            preload() {
-                let imgs = [
-                    "../static/img/cured.png",
-                    "../static/img/death.png",
-                    "../static/img/sure.png",
-                    "../static/img/time.png",
-                    "../static/img/city.png",
-                ];
-                this.imgLength = imgs.length;
-                for (let img of imgs) {
-                    let image = new Image();
-                    image.src = img;
-                    image.onload = () => {
-                        this.count++;
-                        this.progress = Math.floor(this.count / this.imgLength * 100);
-                    }
+        preload() {
+            let imgs = [
+                "../static/img/cured.png",
+                "../static/img/death.png",
+                "../static/img/sure.png",
+                "../static/img/time.png",
+                "../static/img/city.png",
+            ];
+            this.imgLength = imgs.length;
+            for (let img of imgs) {
+                let image = new Image();
+                image.src = img;
+                image.onload = () => {
+                    this.count++;
+                    this.progress = Math.floor(this.count / this.imgLength * 100);
                 }
             }
+        }
         },
         watch: {
             count() {

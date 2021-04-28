@@ -23,9 +23,6 @@
             setTimeout(() => {
                 // 1.1.1 创建地球
                 var earth = new XE.Earth(this.$refs.earthContainer, {
-                    // 这里设置Viewer的配置，和new Viewer(container, options)中的options一致
-                    //homeButton: true,
-                    //timeline: true,
                     orderIndependentTranslucency: false,
                     contextOptions: {
                         webgl: {
@@ -52,9 +49,9 @@
                         }
                     }]
                 };
-
             }, 1000);
             this.$Loading.finish();
+
         },
         // 1.2 资源销毁
         beforeDestroy() {

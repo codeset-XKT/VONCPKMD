@@ -24,7 +24,7 @@
                     }
                 }, {
                     "id": "1",
-                    "name": "Napoleon",
+                    "name": "医学诊疗",
                     "itemStyle": {
                         "normal": {
                             "color": "rgb(236,81,72)"
@@ -360,7 +360,7 @@
                     }
                 }, {
                     "id": "25",
-                    "name": "Thenardier",
+                    "name": "临床诊疗",
                     "itemStyle": {
                         "normal": {
                             "color": "rgb(236,81,72)"
@@ -388,7 +388,7 @@
                     }
                 }, {
                     "id": "27",
-                    "name": "Javert",
+                    "name": "检测手段",
                     "itemStyle": {
                         "normal": {
                             "color": "rgb(236,81,72)"
@@ -682,7 +682,7 @@
                     }
                 }, {
                     "id": "48",
-                    "name": "Gavroche",
+                    "name": "常规治疗",
                     "itemStyle": {
                         "normal": {
                             "color": "rgb(236,81,72)"
@@ -780,7 +780,7 @@
                     }
                 }, {
                     "id": "55",
-                    "name": "Marius",
+                    "name": "疫情诊疗",
                     "itemStyle": {
                         "normal": {
                             "color": "rgb(236,81,72)"

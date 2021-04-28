@@ -1,5 +1,6 @@
 <template>
-    <div style="background:var(--bg-darkColor)">
+    <router-view></router-view>
+    <!-- <div style="background:var(--bg-darkColor)">
         <div style="background: #eee;margin-top: 100px;" class="bbxz">
             <img src="../assets/bb.png" alt="">
             <p>疫情报表下载</p>
@@ -65,7 +66,7 @@
             </Row>
         </div>
 
-    </div>
+    </div> -->
 </template>
 
 <script>

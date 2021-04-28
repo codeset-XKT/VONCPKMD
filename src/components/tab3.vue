@@ -5,20 +5,20 @@
             <div class='progress'>
                 <div class='progress_inner'>
                   <div class='progress_inner__step'>
-                    <label for='step-1'>病毒知识图谱</label>
+                    <label for='step-1'>诊疗知识图谱</label>
                   </div>
-                  <div class='progress_inner__step'>‘
+                  <div class='progress_inner__step'>
                     <label for='step-2'>基本知识图谱</label>
                   </div>
                   <div class='progress_inner__step'>
                     <label for='step-3'>预防知识图谱</label>
                   </div>
-                  <div class='progress_inner__step'>
+                  <!-- <div class='progress_inner__step'>
                     <label for='step-4'>形式知识图谱</label>
                   </div>
                   <div class='progress_inner__step'>
                     <label for='step-5'>文献知识图谱</label>
-                  </div>
+                  </div> -->
                   <input checked='checked' id='step-1' name='step' type='radio' @click="turnTo('map1')">
                   <input id='step-2' name='step' type='radio' @click="turnTo('map2')">
                   <input id='step-3' name='step' type='radio' @click="turnTo('map3')">
@@ -255,6 +255,7 @@
         position: absolute;
         width: 60%;
         bottom: 0;
+        left: 20%;
     }
     
     .progress_inner #step-5:checked+div {
@@ -327,7 +328,7 @@
     }
     
     .progress_inner__bar--set {
-        width: 80%;
+        width: 40%;
         top: -6px;
         background: #70afd0;
         position: relative;

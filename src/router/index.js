@@ -7,12 +7,13 @@ import Tab1 from '../components/tab1'
 import Tab2 from '../components/tab2'
 import Tab3 from '../components/tab3'
 import Tab4 from '../components/tab4'
-import News from '../components/news'
 import chinaCurrent from '../components/tab1_chinaCurrent'
 import chinaTrend from '../components/tab1_chinaTrend'
 import Map1 from '../components/tab3_map1'
 import Map2 from '../components/tab3_map2'
 import Map3 from '../components/tab3_map3'
+import News from '../components/tab4_news'
+import Rumor from '../components/tab4_rumor'
 
 Vue.use(Router)
 
@@ -71,12 +72,17 @@ export default new Router({
             component: Tab3
         }, {
             path: 'tab4',
+            redirect: 'tab4/news',
             name: 'tab4',
             component: Tab4,
             children: [{
                 path: 'news',
                 name: 'news',
-                // component: News
+                component: News
+            }, {
+                path: 'rumor',
+                name: 'rumor',
+                component: Rumor
             }]
         }]
     }]

@@ -31,7 +31,7 @@
         mounted() {
             let that = this;
             //option基础配置项
-            var uploadedDataURL = 'http://geo.datav.aliyun.com/areas/bound/100000_full.json';
+            var uploadedDataURL = 'http://localhost:8080/static/json/china.json';
             var geoCoordMap = {};
             var mapData = [];
             var barData_val = [];

@@ -8,8 +8,8 @@
         </div>
         <div class="left animated bounceInLeft">
             <img src="../assets/logo.png" alt="" width="150px">
-            <p style="font-size: 20px;margin-top: 20px;">新冠肺炎知识图谱数据可视化平台</p>
-            <small style="color: #bbb;">Visualization of novel coronavirus pneumonia knowledge map data</small>
+            <p style="font-size: 20px;margin-top: 20px;">新冠肺炎交互数据可视化平台</p>
+            <small style="color: #bbb;">Visualization of novel coronavirus pneumonia interaction data</small>
             <div>
                 <button type="primary" class="tech">
                     Vue+Earth+Echarts+PyHadoop+PySpark+Flask
@@ -83,7 +83,7 @@
                             <img src="../assets/ld2.png" alt="" width="30px">
                         </div>
                         <h2>丰富的数据展示</h2>
-                        <p>利用Echarts中各色各样的图表展示不同类型的数据，以时间线展示疫情发展趋势，结合WebGIS打造三维疫情地图！</p>
+                        <p>利用Echarts中各色各样的图表展示不同类型的数据，以时间线展示疫情发展趋势，多维度动态演示与时空分析！</p>
                     </div>
                 </div>
                 <div>

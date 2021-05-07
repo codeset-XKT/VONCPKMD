@@ -18,6 +18,13 @@ module.exports = {
                     '^/api': ''
                 }
             },
+            '/map': {
+                target: 'http://geo.datav.aliyun.com',
+                changeOrigin: true,
+                pathRewrite: {
+                    '^/map': ''
+                }
+            },
         },
 
         // Various Dev Server settings

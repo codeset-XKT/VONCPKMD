@@ -12,10 +12,8 @@ Vue.config.productionTip = false
 
 
 /* eslint-disable no-new */
-XE.ready().then(() => {
-    new Vue({
-        el: "#app",
-        router,
-        render: h => h(App)
-    })
+new Vue({
+    el: "#app",
+    router,
+    render: h => h(App)
 })

@@ -2,9 +2,10 @@
     <div style="color:#eee">
     
     <Menu mode="horizontal" :theme="theme1" :active-name="activeItem()" class="slideInDown animated">
+        <div class="nav-mask"></div>
         <span style="float: left;margin-left: 20px;">
             <img src="../assets/logo.png" alt="" width="30" style="vertical-align: middle;margin-right: 10px;">
-            <span style="vertical-align: middle;">新冠肺炎知识图谱数据可视化平台</span s>
+            <span style="vertical-align: middle;">新冠肺炎交互数据可视化平台</span s>
             <Divider type="vertical" />
             <AutoComplete
                 v-model="value1"
@@ -53,7 +54,7 @@
     <footer v-if="showFooter()" :id="this.$route.path">
         <Row>
             <Col span="10" offset="2" class="footer-left">
-                <img src="../assets/logo.png" alt="" width="50px"><span>新冠肺炎知识图谱数据可视化平台</span>
+                <img src="../assets/logo.png" alt="" width="50px"><span>新冠肺炎交互数据可视化平台</span>
                 <p style="margin-top: 40px;font-size: 12px;color: #999;">平台致力于挖掘分析新冠肺炎疫情大数据，利用知识图谱等相关技术构建疫情大数据可视化模型，将疫情大数据以一种直观、容易理解和操纵的方式呈现给用户，展示新冠肺炎的疫情动态、发展趋势以及与相关知识载体之间的联系。</p>
                 <p style="margin-top: 40px;margin-bottom: 40px;font-size: 12px;color: #999;">©VONCPKMD 2020-2021<br>转载内容版权归作者及来源网站所有，本站原创内容转载请注明来源。</p>
             </Col>
@@ -90,15 +91,15 @@
                     value + value + value
                 ];
             },
-            showFooter(){
-                if(this.$route.path=='/main/tab4'||this.$route.path=='/main/home'){
+            showFooter() {
+                if (this.$route.path == '/main/tab4' || this.$route.path == '/main/home') {
                     return true;
-                }else{
+                } else {
                     return false;
                 }
             },
-            activeItem(){ //导航栏栏目显示
-                switch(this.$route.path){
+            activeItem() { //导航栏栏目显示
+                switch (this.$route.path) {
                     case '/main/home':
                         return '1';
                         break;
@@ -121,6 +122,9 @@
                         return '4';
                         break;
                     case '/main/tab3/map2':
+                        return '4';
+                        break;
+                    case '/main/tab3/map3':
                         return '4';
                         break;
                     case '/main/tab4/news':
@@ -193,5 +197,14 @@
     .ivu-divider,
     .ivu-divider-vertical {
         top: 0;
+    }
+    
+    .nav-mask {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.274), rgba(0, 0, 0, 0));
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 999;
+        pointer-events: none;
     }
 </style>

@@ -255,7 +255,7 @@
         position: absolute;
         width: 60%;
         bottom: 0;
-        left: 20%;
+        left: 23%;
     }
     
     .progress_inner #step-5:checked+div {

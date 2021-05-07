@@ -59,7 +59,6 @@
                     roam: true,
                     hoverAnimation: true,
                     focusNodeAdjacency: true,
-                    draggable: true,
                     symbolSize: 33,
                      force: {
                         repulsion: 200
@@ -90,6 +89,7 @@
                         name: "新型冠状病毒肺炎",
                         category: '新型冠状病毒',
                         symbolSize: 90,
+                        url:'https://baike.baidu.com/item/%E6%96%B0%E5%9E%8B%E5%86%A0%E7%8A%B6%E7%97%85%E6%AF%92%E8%82%BA%E7%82%8E/24282529?fromtitle=%E6%96%B0%E5%86%A0&fromid=55458316&fr=aladdin',
                         label: {
                             show: true
                         }, 
@@ -668,6 +668,9 @@
             }
             var myChart1 = echarts.init(document.getElementById('myChart1'));
             myChart1.setOption(option1);
+            myChart1.on('click',function(params){
+                window.open(params.data.url)
+            })
         }
     }
 </script>

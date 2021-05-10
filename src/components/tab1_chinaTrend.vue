@@ -6,6 +6,7 @@
     </div>
 </template>
 <script>
+import data2020 from '../../static/js/data2020.js';
     export default {
         data() {
             return {
@@ -16,6 +17,7 @@
             this.$Loading.start();
         },
         mounted() {
+            console.log(data2020.yearIncData);
             this.$Loading.finish();
             var myChart1 = echarts.init(document.getElementById('myChart1'));
             var myChart2 = echarts.init(document.getElementById('myChart2'));
@@ -26,13 +28,12 @@
                 var end = +echarts.number.parseDate((+year + 1) + '-01-01');
                 var dayTime = 3600 * 24 * 1000;
                 var data = [];
-                for (var time = date; time < end; time += dayTime) {
+                for (var time = date,i=0; time < end; time += dayTime,i++) {
                     data.push([
                         echarts.format.formatTime('yyyy-MM-dd', time),
-                        Math.floor(Math.random() * 10000)
+                        data2020.yearIncData[i].sure_cnt
                     ]);
                 }
-                console.log(data);
                 return data;
             }
             var addOption1 = function() {
@@ -309,6 +310,13 @@
                                 borderWidth: 2
                             }
                         },
+                        label:{
+                            color:"white"
+                        },
+                        controlStyle:{
+                            color:"white",
+                            borderColor:"white"
+                        },
                         lineStyle: {
                             color: '#C9C9C9',
                             width: 2
@@ -321,14 +329,6 @@
                         },
                         tooltip:{
                             show:false
-                        },
-                        // label: {
-                        //     formatter: function(s) {
-                        //         return (new Date(s)).getFullYear();
-                        //     }
-                        // },
-                        title: {
-                            subtext: '数据来自国家统计局'
                         },
                     },
                     legend: {
@@ -355,7 +355,7 @@
             }
             var option2 = {
                 title: {
-                    text: '2020年全年确诊人数与治愈人数关系图',
+                    text: '2020年全年新增确诊人数与新增治愈人数关系图',
                     left: 'center',
                     top: '23%',
                     textStyle: {
@@ -367,26 +367,8 @@
                     top: '40%',
                     bottom: '15%',
                 },
-                toolbox: {
-                    top: '10%',
-                    right: '5%',
-                    feature: {
-                        dataZoom: {
-                            yAxisIndex: 'none'
-                        },
-                        restore: {},
-                        saveAsImage: {}
-                    }
-                },
                 tooltip: {
                     trigger: 'axis',
-                    axisPointer: {
-                        type: 'cross',
-                        animation: false,
-                        label: {
-                            backgroundColor: '#505765'
-                        }
-                    },
                     textStyle: {
                         align: 'left'
                     }
@@ -416,15 +398,20 @@
                     type: 'category',
                     boundaryGap: false,
                     axisLine: {
-                        onZero: false
+                        onZero: false,
+                        lineStyle:{
+                            color:"white"
+                        }
                     },
-                    textStyle: {
-                        color: 'white',
+                    axisTick: {
+                        lineStyle:{
+                            color:"white"
+                        }
                     },
                     data: (function() {
                         let a = [];
-                        for (let i = 0; i < 365; i++) {
-                            a.push(i);
+                        for (let i = 0; i < 366; i++) {
+                            a.push(data2020.yearIncData[i].day);
                         }
                         return a;
                     })()
@@ -432,12 +419,24 @@
                 }],
                 yAxis: [{
                     name: '新增治愈(人)',
-                    type: 'value',
+                    type: 'value', 
+                     axisLine: {
+                        onZero: false,
+                        lineStyle:{
+                            color:"white"
+                        }
+                    }
                 }, {
                     name: '新增确诊(人)',
                     nameLocation: 'start',
                     type: 'value',
-                    inverse: true
+                    inverse: true,
+                     axisLine: {
+                        onZero: false,
+                        lineStyle:{
+                            color:"white"
+                        }
+                    },  
                 }],
                 series: [{
                     name: '新增治愈',
@@ -454,8 +453,8 @@
                     },
                     data: (function() {
                         let a = [];
-                        for (let i = 0; i < 365; i++) {
-                            a.push(Math.floor(Math.random(10) * 100));
+                        for (let i = 0; i < 366; i++) {
+                            a.push(data2020.yearIncData[i].cure_cnt);
                         }
                         return a;
                     })()
@@ -475,8 +474,8 @@
                     },
                     data: (function() {
                         let a = [];
-                        for (let i = 0; i < 365; i++) {
-                            a.push(Math.floor(Math.random(10) * 100));
+                        for (let i = 0; i < 366; i++) {
+                            a.push(data2020.yearIncData[i].sure_cnt);
                         }
                         return a;
                     })()
@@ -491,10 +490,17 @@
                         color: 'white'
                     }
                 },
-                tooltip: {},
+                tooltip: {
+                    formatter:function(params){
+                        return params.marker + params.data[0] +'<br>新增确诊人数：'+ params.data[1] + '人';
+                    },
+                    textStyle:{
+                        align:'left'
+                    }
+                },
                 visualMap: {
                     min: 0,
-                    max: 10000,
+                    max: 1000,
                     calculable: true,
                     orient: 'horizontal',
                     left: 'center',
@@ -512,8 +518,11 @@
                     itemStyle: {
                         borderWidth: 0.5
                     },
-                    yearLabel: {
-                        show: false
+                    dayLabel:{
+                        color:"#fff"
+                    },
+                    monthLabel: {
+                        color:'white'
                     }
                 },
                 series: {

@@ -388,7 +388,7 @@
             var chart1Data = [];
             $.getScript("https://cdn.mdeer.com/data/yqstaticdata.js?callback=callbackstaticdata&t=" + (+new Date));
             window.callbackstaticdata = function(res) {
-                console.log(res);
+                console.log(res)
                 that.continentDataList = res.continentDataList;
                 //拼接得到各国数据
                 for(let i=0;i<res.continentDataList.length;i++){
@@ -474,14 +474,13 @@
                     $(this).children('div').children('.extend-arrow').css('transform', 'rotate(0deg) translateY(-50%)');
                 }
             });
-            var option1 = {
+            var option1 = { 
                 tooltip: {
                     textStyle: {
                         align: 'left'
                     },
                     trigger: 'item',
                     formatter: function(params) {
-                        console.log(params)
                         if(params.name==""){
                             return;
                         }
@@ -656,7 +655,6 @@
                     },
                     axisLabel: {
                         formatter: function(params) {
-                            console.log()
                             return params / 10000000;
                         },
                     }
@@ -786,7 +784,6 @@
                     },
                     axisLabel: {
                         formatter: function(params) {
-                            console.log()
                             return params / 10000;
                         },
                     }
@@ -949,7 +946,6 @@
                     },
                     axisLabel: {
                         formatter: function(params) {
-                            console.log()
                             return params / 10000000;
                         },
                     }

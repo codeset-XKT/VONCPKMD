@@ -1,5 +1,5 @@
 <template>
-    <div style="color:#eee">
+    <div style="color:#eee" class="main">
     
     <Menu mode="horizontal" :theme="theme1" :active-name="activeItem()" class="slideInDown animated">
         <div class="nav-mask"></div>
@@ -55,18 +55,19 @@
         <Row>
             <Col span="10" offset="2" class="footer-left">
                 <img src="../assets/logo.png" alt="" width="50px"><span>新冠肺炎交互数据可视化平台</span>
-                <p style="margin-top: 40px;font-size: 12px;color: #999;">平台致力于挖掘分析新冠肺炎疫情大数据，利用知识图谱等相关技术构建疫情大数据可视化模型，将疫情大数据以一种直观、容易理解和操纵的方式呈现给用户，展示新冠肺炎的疫情动态、发展趋势以及与相关知识载体之间的联系。</p>
-                <p style="margin-top: 40px;margin-bottom: 40px;font-size: 12px;color: #999;">©VONCPKMD 2020-2021<br>转载内容版权归作者及来源网站所有，本站原创内容转载请注明来源。</p>
+                <p style="margin-top: 20px;font-size: 12px;color: #999;">平台意义：一是能够让用户直观便捷地观察到疫情的动态趋势实现预警于民，二是设计出合理的可视化方案，借助于人眼快速的视觉感知和人脑的智能认知能力，通过可视化交互加深用户对疫情数据的理解并辅助数据的分析，三是通过可视化模型的构建对疫情往后的走向做出一定的预测，四是结合知识图谱技术，构建出几种新冠知识图谱并进行交互可视化，以图谱的方式向用户普及新冠相关的知识网络。</p>
+                <p style="margin-top: 20px;margin-bottom: 40px;font-size: 12px;color: #999;">©VONCPKMD 2020-2021<br>转载内容版权归作者及来源网站所有，本站原创内容转载请注明来源。</p>
             </Col>
             <Col span="8" offset="2" class="footer-right">
                 <p style="font-size: 20px;font-weight: 1000;margin-top: 50px;color: #aaa;">技术支持</p>
-                <p style="margin-top: 40px;color: #aaa;">Vue &nbsp; Echarts &nbsp; Earth &nbsp; Pyhadoop &nbsp; PySpark</p>
+                <p style="margin-top: 40px;color: #aaa;">Vue &nbsp; Echarts &nbsp; IviewUI &nbsp; AJAX &nbsp; Animate &nbsp; Swiper</p>
                 <div>
                     <img src="../assets/s1.jpg" alt="" width="40px">
                     <img src="../assets/s2.jpg" alt="" width="40px">
-                    <img src="../assets/s3.jpg" alt="" width="40px">
+                    <img src="../assets/s3.png" alt="" width="40px">
                     <img src="../assets/s4.jpg" alt="" width="40px">
-                    <img src="../assets/s5.jpg" alt="" width="40px">
+                    <img src="../assets/s5.png" alt="" width="40px">
+                    <img src="../assets/s6.png" alt="" width="40px">
                 </div>
             </Col>
         </Row>
@@ -143,7 +144,7 @@
 </script>
 
 <style scode>
-    span {
+    .main span {
         color: #eee;
     }
     

@@ -12,7 +12,7 @@
             <small style="color: #bbb;">Visualization of novel coronavirus pneumonia interaction data</small>
             <div>
                 <button type="primary" class="tech">
-                    Vue+Earth+Echarts+PyHadoop+PySpark+Flask
+                    Vue+Echarts+IviewUI+AJAX+Animate+Swiper
                     <span class="btn-tx1"></span>
                 </button>
             </div>

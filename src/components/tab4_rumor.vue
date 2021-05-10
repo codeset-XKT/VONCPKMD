@@ -66,7 +66,6 @@
                     that.rumorData = data.data;
                     that.pageData = that.rumorData.slice(0, 10);
                     that.rumorTotal = data.data.length;
-                    console.log(that.pageData);
                 },
                 error: function(err) {
                     console.log(err)

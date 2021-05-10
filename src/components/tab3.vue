@@ -5,7 +5,7 @@
             <div class='progress'>
                 <div class='progress_inner'>
                   <div class='progress_inner__step'>
-                    <label for='step-1'>诊疗知识图谱</label>
+                    <label for='step-1'>疫苗知识图谱</label>
                   </div>
                   <div class='progress_inner__step'>
                     <label for='step-2'>基本知识图谱</label>
@@ -19,9 +19,9 @@
                   <div class='progress_inner__step'>
                     <label for='step-5'>文献知识图谱</label>
                   </div> -->
-                  <input checked='checked' id='step-1' name='step' type='radio' @click="turnTo('map1')">
-                  <input id='step-2' name='step' type='radio' @click="turnTo('map2')">
-                  <input id='step-3' name='step' type='radio' @click="turnTo('map3')">
+                  <input :checked="activeMap('map1')" id='step-1' name='step' type='radio' @click="turnTo('map1')">
+                  <input :checked="activeMap('map2')" id='step-2' name='step' type='radio' @click="turnTo('map2')">
+                  <input :checked="activeMap('map3')" id='step-3' name='step' type='radio' @click="turnTo('map3')">
                   <input id='step-4' name='step' type='radio'>
                   <input id='step-5' name='step' type='radio'>
                   <div class='progress_inner__bar'></div>
@@ -56,6 +56,11 @@
                 console.log(this.$route.name);
                 if (this.$route.name != msg) {
                     this.$router.push(msg)
+                }
+            },
+            activeMap(mapName){
+                if(mapName == this.$route.name){
+                    return true;
                 }
             }
         },

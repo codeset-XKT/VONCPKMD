@@ -76,7 +76,6 @@
             var url = "https://cdn.mdeer.com/contentdtos.js?callback=callbackcontentdtos&t=";
             $.getScript(url + (new Date()));
             window.callbackcontentdtos = function(res) {
-                console.log(res);
                 that.newsData = res;
                 that.pageData = that.newsData.slice(0, 10);
                 that.newsTotal = res.length;

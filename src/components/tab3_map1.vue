@@ -1226,7 +1226,7 @@
             myChart1.on('click',function(params){
                 if(params.data.data == '点击获取具体信息。'){
                     that.picTitle = params.data.name;
-                    that.picUrl = '../../static/img/'+params.data.name + '.jpg';
+                    that.picUrl = './static/img/'+params.data.name + '.jpg';
                     that.modal1 = true;
                 }
             })

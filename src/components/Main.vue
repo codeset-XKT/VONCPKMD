@@ -5,7 +5,7 @@
         <div class="nav-mask"></div>
         <span style="float: left;margin-left: 20px;">
             <img src="../assets/logo.png" alt="" width="30" style="vertical-align: middle;margin-right: 10px;">
-            <span style="vertical-align: middle;">新冠肺炎交互数据可视化平台</span s>
+            <span style="vertical-align: middle;color:#eee">新冠肺炎交互数据可视化平台</span>
             <Divider type="vertical" />
             <AutoComplete
                 v-model="value1"
@@ -21,11 +21,11 @@
                 <Icon type="ios-arrow-down"></Icon>
             </Button>
             <DropdownMenu slot="list">
-                <DropdownItem>驴打滚</DropdownItem>
-                <DropdownItem>炸酱面</DropdownItem>
-                <DropdownItem disabled>豆汁儿</DropdownItem>
-                <DropdownItem>冰糖葫芦</DropdownItem>
-                <DropdownItem divided>北京烤鸭</DropdownItem>
+                <DropdownItem>made</DropdownItem>
+                <DropdownItem>by</DropdownItem>
+                <DropdownItem disabled>yx142214</DropdownItem>
+                <DropdownItem>USC</DropdownItem>
+                <DropdownItem divided><a href="https://gitee.com/yx142214" style="font-size:12px">gitee adress</a></DropdownItem>
             </DropdownMenu>
         </Dropdown>
         <MenuItem name="5"  style="margin-right: 20px;" to="/main/tab4">
@@ -55,7 +55,7 @@
         <Row>
             <Col span="10" offset="2" class="footer-left">
                 <img src="../assets/logo.png" alt="" width="50px"><span>新冠肺炎交互数据可视化平台</span>
-                <p style="margin-top: 20px;font-size: 12px;color: #999;">平台意义：一是能够让用户直观便捷地观察到疫情的动态趋势实现预警于民，二是设计出合理的可视化方案，借助于人眼快速的视觉感知和人脑的智能认知能力，通过可视化交互加深用户对疫情数据的理解并辅助数据的分析，三是通过可视化模型的构建对疫情往后的走向做出一定的预测，四是结合知识图谱技术，构建出几种新冠知识图谱并进行交互可视化，以图谱的方式向用户普及新冠相关的知识网络。</p>
+                <p style="margin-top: 20px;font-size: 12px;color: #999;">平台意义：一是能够让用户直观便捷地观察到疫情的动态趋势实现预警于民，二是设计出合理的可视化方案，借助于人眼快速的视觉感知和人脑的智能认知能力，通过可视化交互加深用户对疫情数据的理解并辅助数据的分析，三是结合知识图谱可视化技术，构建出几种新冠知识图谱并进行交互可视化，以图谱的方式向用户普及新冠相关的知识网络。从而做到疫情的实时追踪与预警，辅助预防、分析和把控新冠肺炎疫情的发展。</p>
                 <p style="margin-top: 20px;margin-bottom: 40px;font-size: 12px;color: #999;">©VONCPKMD 2020-2021<br>转载内容版权归作者及来源网站所有，本站原创内容转载请注明来源。</p>
             </Col>
             <Col span="8" offset="2" class="footer-right">
@@ -144,9 +144,6 @@
 </script>
 
 <style scode>
-    .main span {
-        color: #eee;
-    }
     
     .ivu-menu-dark {
         /* background: rgba(0, 0, 0, .3) !important; */

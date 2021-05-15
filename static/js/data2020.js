@@ -365,6 +365,20 @@ export default {
         { sure_cnt: 96, die_cnt: 4, day: "12.28", cure_cnt: 71 },
         { sure_cnt: 79, die_cnt: 2, day: "12.29", cure_cnt: 113 },
         { sure_cnt: 81, die_cnt: 4, day: "12.30", cure_cnt: 124 },
-        { sure_cnt: 89, die_cnt: 1, day: "12.31", cure_cnt: 113 },
+        { sure_cnt: 89, die_cnt: 1, day: "12.31", cure_cnt: 113 }
+    ],
+    monthIncData: [
+        { sure_cnt: 11821, die_cnt: 258, day: "2020年1月", cure_cnt: 243 },
+        { sure_cnt: 68147, die_cnt: 2614, day: "2020年2月", cure_cnt: 41432 },
+        { sure_cnt: 2663, die_cnt: 448, day: "2020年3月", cure_cnt: 34740 },
+        { sure_cnt: 1754, die_cnt: 1322, day: "2020年4月", cure_cnt: 3343 },
+        { sure_cnt: 203, die_cnt: 2, day: "2020年5月", cure_cnt: 967 },
+        { sure_cnt: 644, die_cnt: 3, day: "2020年6月", cure_cnt: 256 },
+        { sure_cnt: 2890, die_cnt: 20, day: "2020年7月", cure_cnt: 1159 },
+        { sure_cnt: 2280, die_cnt: 62, day: "2020年8月", cure_cnt: 3831 },
+        { sure_cnt: 659, die_cnt: 16, day: "2020年9月", cure_cnt: 892 },
+        { sure_cnt: 860, die_cnt: 0, day: "2020年10月", cure_cnt: 704 },
+        { sure_cnt: 1656, die_cnt: 4, day: "2020年11月", cure_cnt: 932 },
+        { sure_cnt: 3185, die_cnt: 39, day: "2020年12月", cure_cnt: 3011 },
     ]
 }

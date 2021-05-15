@@ -102,6 +102,7 @@
 </template>
 
 <script>
+    import provinceData from '../../static/js/incProvince2020.js'
     export default {
         data() {
             return {
@@ -133,7 +134,6 @@
                 dataType: "json",
                 success: function(res) {
                     let data = JSON.parse(res.data);
-                    console.log(JSON.parse(res.data));
                     that.allConfirm = data.chinaTotal.confirm;
                     that.nowConfirm = data.chinaTotal.nowConfirm;
                     that.dead = data.chinaTotal.dead;

@@ -2,7 +2,7 @@
   <div class="skfx">
     <div class="data-left">
         <div>
-            <button class="left-btn">疫情数据</button>
+            <button class="left-btn">疫情实时数据</button>
             <div class="data-left-title">
                 <span>地区</span>
                 <span class="current">现存</span>
@@ -394,7 +394,7 @@
                 for(let i=0;i<res.continentDataList.length;i++){
                     for(let j=0;j<res.continentDataList[i].countriesData.length;j++){
                         that.countriesDataList.push(res.continentDataList[i].countriesData[j]);
-                        that.test.push(res.continentDataList[i].countriesData[j].childStatistic)
+                        that.test.push(res.continentDataList[i].countriesData[j].childStatistic);
                     }
                 }
                 //构建chart1Data 现存确诊数据
@@ -465,7 +465,7 @@
                 chart4.setOption(option4);
                 
             };
-            $(document).on('click', '.data-head-name', function() {
+            $(document).on('click', '.data-head-name', function() { 
                 if ($(this).children('.data-body').css('display') == 'none') {
                     $(this).children('.data-body').css('display', 'flex');
                     $(this).children('div').children('.extend-arrow').css('transform', 'rotate(-90deg) translateY(-50%)');
@@ -1162,7 +1162,6 @@
         top: 50%;
         transform: translateY(-50%);
         transform-origin: 50% 0%;
-        transition: all 0.1s ease;
     }
     
     .data-left-title span {

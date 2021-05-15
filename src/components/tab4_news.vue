@@ -1,6 +1,6 @@
 <template>
     <div class="news">
-        <div class="to-rumor animated fadeInRight"><a href="/#/main/tab4/rumor">疫情谣言</a></div>
+        <div class="to-rumor animated fadeInRight"><router-link to="rumor">疫情谣言</router-link></div>
         <div class="product-section product-features">
             <div class="product-title animated fadeInDown"><img src="../assets/news-icon.png" alt="" width="50px" style="vertical-align: middle;"> 疫情新闻</div>
             <div class="product-wrapper animated fadeInUp">

@@ -1,6 +1,6 @@
 <template>
     <div class="rumor">
-    <div class="to-news animated fadeInRight"><a href="/#/main/tab4/news">疫情新闻</a></div>
+    <div class="to-news animated fadeInRight"><router-link to="news">疫情新闻</router-link></div>
     <div class="animated fadeInDown rumor-top"><img src="../assets/bb.png" alt="" width="50px" style="vertical-align: middle;"> 疫情谣言</div>
     <div class="swiper">
         <div class="swiper-container">

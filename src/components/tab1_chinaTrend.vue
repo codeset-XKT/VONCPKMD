@@ -4,42 +4,63 @@
         <div id="myChart2"></div>
         <div id="myChart3"></div>
         <div class="rl-set">
-            <span class="rl-qz" @click="changeRlStatus('sure_cnt','确诊')">新增确诊</span>
+            <span class="rl-qz set-active1" @click="changeRlStatus('sure_cnt','确诊')">新增确诊</span>
             <span class="rl-zy" @click="changeRlStatus('cure_cnt','治愈')">新增治愈</span>
             <span class="rl-sw" @click="changeRlStatus('die_cnt','死亡')">新增死亡</span>
         </div>
     </div>
 </template>
 <script>
-import data2020 from '../../static/js/data2020.js';
+    import data2020 from '../../static/js/data2020.js';
     export default {
         data() {
             return {
                 yqData: {},
-                rl_status:'确诊',
-                myChart3:null,
-                option3:null
+                rl_status: '确诊',
+                myChart3: null,
+                option3: null
             }
         },
-        methods:{
-            changeRlStatus(projectItem,msg){
-                this.rl_status=msg;
-                var getVirtulData = function(year,projectItem) {
-                year = year || '2021';
-                var date = +echarts.number.parseDate(year + '-01-01');
-                var end = +echarts.number.parseDate((+year + 1) + '-01-01');
-                var dayTime = 3600 * 24 * 1000;
-                var data = [];
-                for (var time = date,i=0; time < end; time += dayTime,i++) {
-                    data.push([
-                        echarts.format.formatTime('yyyy-MM-dd', time),
-                        data2020.yearIncData[i][projectItem]
-                    ]);
+        methods: {
+            changeRlStatus(projectItem, msg) {
+                var that = this;
+                this.rl_status = msg;
+                var getVirtulData = function(year, projectItem) {
+                    year = year || '2021';
+                    var date = +echarts.number.parseDate(year + '-01-01');
+                    var end = +echarts.number.parseDate((+year + 1) + '-01-01');
+                    var dayTime = 3600 * 24 * 1000;
+                    var data = [];
+                    for (var time = date, i = 0; time < end; time += dayTime, i++) {
+                        data.push([
+                            echarts.format.formatTime('yyyy-MM-dd', time),
+                            data2020.yearIncData[i][projectItem]
+                        ]);
+                    }
+                    return data;
                 }
-                return data;
-            }
-                this.option3.series.data = getVirtulData(2020,projectItem);
-                //
+                this.option3.series.data = getVirtulData(2020, projectItem);
+                if(msg=="确诊"){
+                    that.option3.visualMap.max = 1000;
+                    that.option3.visualMap.inRange.color =  ['#f6efa6', '#bf444c'];
+                    $('.rl-qz').addClass('set-active1');
+                    $('.rl-zy').removeClass('set-active2');
+                    $('.rl-sw').removeClass('set-active3');
+                }
+                if(msg=="治愈"){
+                    that.option3.visualMap.max = 1000;
+                    that.option3.visualMap.inRange.color =  ['#f6efa6', 'green'];
+                    $('.rl-qz').removeClass('set-active1');
+                    $('.rl-zy').addClass('set-active2');
+                    $('.rl-sw').removeClass('set-active3');
+                }
+                if(msg=="死亡"){
+                    that.option3.visualMap.max = 100;
+                    that.option3.visualMap.inRange.color =  ['#f6efa6', '#333'];
+                    $('.rl-qz').removeClass('set-active1');
+                    $('.rl-zy').removeClass('set-active2');
+                    $('.rl-sw').addClass('set-active3');
+                }
                 this.myChart3.setOption(this.option3);
             }
         },
@@ -54,15 +75,15 @@ import data2020 from '../../static/js/data2020.js';
             var myChart1 = echarts.init(document.getElementById('myChart1'));
             var myChart2 = echarts.init(document.getElementById('myChart2'));
             that.myChart3 = echarts.init(document.getElementById('myChart3'));
-            var monthLen = [31,29,31,30,31,30,31,31,30,31,30,31];
-            var monthFirstIndex = [0,31,60,91,121,152,182,213,244,274,305,335];
-            var getVirtulData = function(year,projectItem) {
+            var monthLen = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+            var monthFirstIndex = [0, 31, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335];
+            var getVirtulData = function(year, projectItem) {
                 year = year || '2021';
                 var date = +echarts.number.parseDate(year + '-01-01');
                 var end = +echarts.number.parseDate((+year + 1) + '-01-01');
                 var dayTime = 3600 * 24 * 1000;
                 var data = [];
-                for (var time = date,i=0; time < end; time += dayTime,i++) {
+                for (var time = date, i = 0; time < end; time += dayTime, i++) {
                     data.push([
                         echarts.format.formatTime('yyyy-MM-dd', time),
                         data2020.yearIncData[i][projectItem]
@@ -70,17 +91,17 @@ import data2020 from '../../static/js/data2020.js';
                 }
                 return data;
             }
-            var addOption1 = function(firstIndex,len,month) {
+            var addOption1 = function(firstIndex, len, month) {
                 return {
-                        title:{
-                            text:'2020年各月新增数据动态演示图（'+(parseInt(month)+1)+'月）',
-                            left:'center',
-                            top:100,
-                            textStyle:{
-                                color:'white'
-                            }
-                        },
-                        tooltip: {
+                    title: {
+                        text: '2020年各月新增数据动态演示图（' + (parseInt(month) + 1) + '月）',
+                        left: 'center',
+                        top: 100,
+                        textStyle: {
+                            color: 'white'
+                        }
+                    },
+                    tooltip: {
                         show: true,
                         formatter: `<img src="./static/img/time.png" width="20px" style="vertical-align: bottom">
                         时间:{b}<br>
@@ -136,9 +157,9 @@ import data2020 from '../../static/js/data2020.js';
                             show: false
                         },
                         boundaryGap: false,
-                        data:(function() {
+                        data: (function() {
                             let a = [];
-                            for (let i = firstIndex; i <firstIndex+len; i++) {
+                            for (let i = firstIndex; i < firstIndex + len; i++) {
                                 a.push(data2020.yearIncData[i].day);
                             }
                             return a;
@@ -216,7 +237,7 @@ import data2020 from '../../static/js/data2020.js';
                         },
                         data: (function() {
                             let a = [];
-                            for (let i = firstIndex; i <firstIndex+len; i++) {
+                            for (let i = firstIndex; i < firstIndex + len; i++) {
                                 a.push(data2020.yearIncData[i].sure_cnt);
                             }
                             return a;
@@ -268,7 +289,7 @@ import data2020 from '../../static/js/data2020.js';
                         },
                         data: (function() {
                             let a = [];
-                            for (let i = firstIndex; i <firstIndex+len; i++) {
+                            for (let i = firstIndex; i < firstIndex + len; i++) {
                                 a.push(data2020.yearIncData[i].cure_cnt);
                             }
                             return a;
@@ -320,7 +341,7 @@ import data2020 from '../../static/js/data2020.js';
                         },
                         data: (function() {
                             let a = [];
-                            for (let i = firstIndex; i <firstIndex+len; i++) {
+                            for (let i = firstIndex; i < firstIndex + len; i++) {
                                 a.push(data2020.yearIncData[i].die_cnt);
                             }
                             return a;
@@ -331,14 +352,14 @@ import data2020 from '../../static/js/data2020.js';
             var timeOption1 = {
                 baseOption: {
                     timeline: {
-                        width:'80%',
+                        width: '80%',
                         bottom: "5%",
-                        left:'center',
+                        left: 'center',
                         axisType: 'category',
                         autoPlay: true,
                         playInterval: 2000,
                         animation: true,
-                        data: ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
+                        data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
                         itemStyle: {
                             normal: {
                                 color: '#fff',
@@ -351,12 +372,12 @@ import data2020 from '../../static/js/data2020.js';
                                 borderWidth: 2
                             }
                         },
-                        label:{
-                            color:"white"
+                        label: {
+                            color: "white"
                         },
-                        controlStyle:{
-                            color:"white",
-                            borderColor:"white"
+                        controlStyle: {
+                            color: "white",
+                            borderColor: "white"
                         },
                         lineStyle: {
                             color: '#C9C9C9',
@@ -368,8 +389,8 @@ import data2020 from '../../static/js/data2020.js';
                             borderColor: '#4B96F3',
                             borderWidth: 2
                         },
-                        tooltip:{
-                            show:false
+                        tooltip: {
+                            show: false
                         },
                     },
                     legend: {
@@ -429,8 +450,8 @@ import data2020 from '../../static/js/data2020.js';
                     start: 0,
                     end: 30,
                     height: 20,
-                    textStyle:{
-                        color:"white"
+                    textStyle: {
+                        color: "white"
                     }
                 }, {
                     type: 'inside',
@@ -443,13 +464,13 @@ import data2020 from '../../static/js/data2020.js';
                     boundaryGap: false,
                     axisLine: {
                         onZero: false,
-                        lineStyle:{
-                            color:"white"
+                        lineStyle: {
+                            color: "white"
                         }
                     },
                     axisTick: {
-                        lineStyle:{
-                            color:"white"
+                        lineStyle: {
+                            color: "white"
                         }
                     },
                     data: (function() {
@@ -463,31 +484,31 @@ import data2020 from '../../static/js/data2020.js';
                 }],
                 yAxis: [{
                     name: '新增治愈(人)',
-                    type: 'value', 
-                    max:4000,
-                     axisLine: {
+                    type: 'value',
+                    max: 4000,
+                    axisLine: {
                         onZero: false,
-                        lineStyle:{
-                            color:"white"
+                        lineStyle: {
+                            color: "white"
                         }
                     }
                 }, {
                     name: '新增确诊(人)',
                     nameLocation: 'start',
                     type: 'value',
-                    max:4000,
+                    max: 4000,
                     inverse: true,
-                     axisLine: {
+                    axisLine: {
                         onZero: false,
-                        lineStyle:{
-                            color:"white"
+                        lineStyle: {
+                            color: "white"
                         }
-                    },  
+                    },
                 }],
                 series: [{
                     name: '新增治愈',
                     type: 'line',
-                    symbolSize:0,
+                    symbolSize: 0,
                     areaStyle: {
                         color: '#00ca95'
                     },
@@ -508,7 +529,7 @@ import data2020 from '../../static/js/data2020.js';
                 }, {
                     name: '新增确诊',
                     type: 'line',
-                    symbolSize:0,
+                    symbolSize: 0,
                     yAxisIndex: 1,
                     areaStyle: {
                         color: '#fc6565',
@@ -539,11 +560,11 @@ import data2020 from '../../static/js/data2020.js';
                     }
                 },
                 tooltip: {
-                    formatter:function(params){
-                        return params.marker + params.data[0] +'<br>新增'+that.rl_status+'人数：'+ params.data[1] + '人';
+                    formatter: function(params) {
+                        return params.marker + params.data[0] + '<br>新增' + that.rl_status + '人数：' + params.data[1] + '人';
                     },
-                    textStyle:{
-                        align:'left'
+                    textStyle: {
+                        align: 'left'
                     }
                 },
                 visualMap: {
@@ -555,6 +576,9 @@ import data2020 from '../../static/js/data2020.js';
                     bottom: '20%',
                     textStyle: {
                         color: "white"
+                    },
+                    inRange: {
+                        color: ['#f6efa6', '#bf444c']
                     }
                 },
                 calendar: {
@@ -566,21 +590,21 @@ import data2020 from '../../static/js/data2020.js';
                     itemStyle: {
                         borderWidth: 0.5
                     },
-                    dayLabel:{
-                        color:"#fff"
+                    dayLabel: {
+                        color: "#fff"
                     },
                     monthLabel: {
-                        color:'white'
+                        color: 'white'
                     }
                 },
                 series: {
                     type: 'heatmap',
                     coordinateSystem: 'calendar',
-                    data: getVirtulData(2020,'sure_cnt')
+                    data: getVirtulData(2020, 'sure_cnt')
                 }
             }
-            for(let i=0;i<12;i++){
-                timeOption1.options.push(addOption1(monthFirstIndex[i],monthLen[i],i));
+            for (let i = 0; i < 12; i++) {
+                timeOption1.options.push(addOption1(monthFirstIndex[i], monthLen[i], i));
             }
             myChart1.setOption(timeOption1);
             myChart2.setOption(option2);
@@ -619,18 +643,76 @@ import data2020 from '../../static/js/data2020.js';
         position: absolute;
         width: 50%;
         height: 45%;
-        top:55%;
+        top: 55%;
         left: 50%;
     }
-    .rl-set{
-        position:absolute;
-        bottom:0;
-        right:200px;
-        padding:10px;
+    
+    .rl-set {
+        position: absolute;
+        bottom: 0;
+        right: 25%;
+        transform: translateX(50%);
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
     }
-    .rl-set span{
-        padding:10px;
-        padding-bottom:0;
-        cursor:pointer;
+    
+    .rl-set span {
+        cursor: pointer;
+        display: inline-block;
+        height: 45px;
+        line-height: 45px;
+        width: 100px;
+        font-size: 14px;
+        border-top: 3px solid #ddd;
+        color: #ddd;
+        font-weight: bold;
+        transition: all 0.1s linear;
     }
-</style>
+    
+    .rl-set span:nth-of-type(1) {
+        background: rgba(177, 52, 30, 0.432);
+    }
+    
+    .rl-set span:nth-of-type(1):hover {
+        background: rgb(219, 62, 34) !important;
+        color: #fff !important;
+        border-top: 3px solid #fff !important;
+    }
+    
+    .rl-set span:nth-of-type(2) {
+        background: rgba(47, 160, 53, 0.274);
+    }
+    
+    .rl-set span:nth-of-type(2):hover {
+        background: rgba(47, 160, 53, 0.753) !important;
+        color: #fff !important;
+        border-top: 3px solid #fff !important;
+    }
+    
+    .rl-set span:nth-of-type(3) {
+        background: rgba(128, 128, 128, 0.356);
+    }
+    
+    .rl-set span:nth-of-type(3):hover {
+        background: rgba(128, 128, 128, 0.76) !important;
+        color: #fff !important;
+        border-top: 3px solid #fff !important;
+    }
+    
+    .set-active1 {
+        color: #fff !important;
+        border-top: 3px solid #fff !important;
+        background: rgb(219, 62, 34) !important;
+    }
+    .set-active2 {
+        color: #fff !important;
+        border-top: 3px solid #fff !important;
+       background: rgba(47, 160, 53, 0.753) !important;
+    }
+    .set-active3 {
+        color: #fff !important;
+        border-top: 3px solid #fff !important;
+        background: rgba(128, 128, 128, 0.76) !important;
+    }
+</style>m

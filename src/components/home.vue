@@ -102,7 +102,6 @@
 </template>
 
 <script>
-    import provinceData from '../../static/js/incProvince2020.js'
     export default {
         data() {
             return {
